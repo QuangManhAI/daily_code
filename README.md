@@ -1,3 +1,6 @@
+## Project Structure
+
+```plaintext
 src/
 │
 ├── interfaces/                  # Khai báo interface
