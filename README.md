@@ -1,1 +1,40 @@
-<pre> ```plaintext src/ │ ├── interfaces/ # Khai báo interface │ ├── IBook.ts │ ├── IUser.ts │ ├── IBorrower.ts │ ├── ILibrarian.ts │ ├── IAuthor.ts │ └── ILibrary.ts │ ├── enums/ # Khai báo enum │ └── BookGenre.ts │ ├── models/ # Các class mô tả dữ liệu và hành vi │ ├── books/ │ │ ├── Book.ts │ │ ├── FictionBook.ts │ │ └── NonFictionBook.ts │ │ │ ├── users/ │ │ ├── User.ts # Lớp cơ sở cho Borrower & Librarian │ │ ├── Borrower.ts │ │ └── Librarian.ts │ │ │ ├── Author.ts │ └── BorrowTransaction.ts │ ├── services/ # Lớp xử lý nghiệp vụ │ └── Library.ts │ ├── exceptions/ # Custom error │ ├── BookNotAvailableError.ts │ ├── InvalidBorrowerError.ts │ └── OverdueError.ts │ ├── utils/ # Hàm tiện ích │ └── dateUtils.ts │ ├── main.ts # Entry point └── README.md ``` </pre>
+src/
+│
+├── interfaces/                  # Khai báo interface
+│   ├── IBook.ts
+│   ├── IUser.ts
+│   ├── IBorrower.ts
+│   ├── ILibrarian.ts
+│   ├── IAuthor.ts
+│   └── ILibrary.ts
+│
+├── enums/                       # Khai báo enum
+│   └── BookGenre.ts
+│
+├── models/                      # Các class mô tả dữ liệu và hành vi
+│   ├── books/
+│   │   ├── Book.ts
+│   │   ├── FictionBook.ts
+│   │   └── NonFictionBook.ts
+│   │
+│   ├── users/
+│   │   ├── User.ts              # Lớp cơ sở cho Borrower & Librarian
+│   │   ├── Borrower.ts
+│   │   └── Librarian.ts
+│   │
+│   ├── Author.ts
+│   └── BorrowTransaction.ts
+│
+├── services/                    # Lớp xử lý nghiệp vụ
+│   └── Library.ts
+│
+├── exceptions/                  # Custom error
+│   ├── BookNotAvailableError.ts
+│   ├── InvalidBorrowerError.ts
+│   └── OverdueError.ts
+│
+├── utils/                       # Hàm tiện ích
+│   └── dateUtils.ts
+│
+├── main.ts                      # Entry point
+└── README.md
