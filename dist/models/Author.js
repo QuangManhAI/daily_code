@@ -8,6 +8,7 @@ class Author {
     birthDate;
     nationality;
     books;
+    role;
     gender;
     address;
     email;
@@ -15,13 +16,14 @@ class Author {
     deathDate;
     genres;
     awards;
-    constructor(id, age, name, birthDate, nationality, books, gender, address, email, biography, deathDate, genres, awards) {
+    constructor(id, age, name, birthDate, nationality, books, role, gender, address, email, biography, deathDate, genres, awards) {
         this.id = id;
         this.age = age;
         this.name = name;
         this.birthDate = birthDate;
         this.nationality = nationality;
         this.books = books;
+        this.role = role;
         this.gender = gender;
         this.address = address;
         this.email = email;
@@ -104,6 +106,12 @@ class Author {
     }
     setAwards(_awards) {
         this.awards = _awards;
+    }
+    getRole() {
+        return this.role;
+    }
+    setRole(_role) {
+        this.role = _role;
     }
 }
 exports.Author = Author;

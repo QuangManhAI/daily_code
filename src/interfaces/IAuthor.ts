@@ -1,8 +1,13 @@
+// định nghĩa các interface để xây dựng tổng quát cấu trúc 1 đối tượng
+// interface của tác giả author 
+
 import type { BookGenre } from "../enums/BookGenre";
 import type { IBook } from "./IBook";
 import type { IUser } from "./IUser";
 
 export interface IAuthor extends IUser {
+    // khai báo các phương thức getter/ setter
+    // không khai báo thuộc tính vì ở định nghĩa khai báo các thuộc tính là protected
     getBiography(): string | undefined;
     setBiography(_biography: string): void;
 

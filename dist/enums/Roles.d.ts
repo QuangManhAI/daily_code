@@ -1,5 +1,6 @@
 export declare enum Role {
     BORROWER = "Borrower",
-    LIBRARIAN = "Librarian"
+    LIBRARIAN = "Librarian",
+    AUTHOR = "Author"
 }
 //# sourceMappingURL=Roles.d.ts.map

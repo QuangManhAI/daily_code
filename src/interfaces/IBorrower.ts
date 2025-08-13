@@ -1,3 +1,5 @@
+// interface cho người mượn kế thừa từ người dùng
+
 import type { IUser } from "./IUser";
 import type { IBook } from "./IBook";
 import type { Status } from "../enums/Status";

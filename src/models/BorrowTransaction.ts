@@ -2,6 +2,8 @@ import { IBook } from "../interfaces/IBook";
 import { IBorrower } from "../interfaces/IBorrower";
 import { IBorrowTransaction } from "../interfaces/IBorrowTransaction";
 
+
+// xử lí với giao dịch mượn
 export class BorrowTransaction implements IBorrowTransaction {
     constructor(
         public readonly id: string,
@@ -66,7 +68,8 @@ export class BorrowTransaction implements IBorrowTransaction {
         }
         return currentDate > this.dueDate;
     }
-
+    //tính toán với các đặc trưng tìm các thông tin cần thiết
+    // tính số ngày người mượn bị trễ  hay tính tiền phạt dựa trên số ngày trễ
     getOverdueDays(currentDate: Date = new Date()): number {
         if (!this.isOverDue(currentDate)) return 0;
 

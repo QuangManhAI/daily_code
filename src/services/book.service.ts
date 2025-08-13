@@ -7,7 +7,7 @@ export class BookService {
     constructor(private readonly bookRepo: BookRepository) {}
 
     async create(book: IBook) {
-        this.bookRepo.create(book);
+        return this.bookRepo.create(book);
     }
 
     async getAll() {

@@ -1,16 +1,24 @@
+// Xây dựng lớp User hoàn chỉnh để làm lớp cơ sở cho các lớp khác
+
+
 import type { Gender } from "../../enums/Gender";
+import { Role } from "../../enums/Roles";
 import type { IUser } from "../../interfaces/IUser";
 
 export abstract class User implements IUser {
+    // hàm khởi tạo với các thuộc tính
     constructor(
         public readonly id: string,
         protected name: string,
         protected age: number,
+        protected role: Role, 
         protected gender?: Gender,
         protected address?: string,
         protected email?: string,
     ){}
 
+
+    // phương thức cơ bản
     getId(): string {
         return this.id
     }
@@ -44,7 +52,7 @@ export abstract class User implements IUser {
     }
 
     setAddress(_address: string): void {
-        this.address == _address;
+        this.address = _address;
     }
 
     getEmail(): string | undefined {
@@ -52,7 +60,15 @@ export abstract class User implements IUser {
     }
 
     setEmail(_email: string): void {
-        this.email == _email;
+        this.email = _email;
+    }
+
+    getRole(): Role {
+        return this.role;
+    }
+
+    setRole(_role: Role): void {
+        this.role = _role;
     }
 
 }

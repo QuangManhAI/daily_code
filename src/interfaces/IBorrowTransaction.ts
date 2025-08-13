@@ -1,3 +1,5 @@
+// interface cho một giao dịch sách
+
 import { IBook } from "./IBook";
 import { IBorrower } from "./IBorrower";
 

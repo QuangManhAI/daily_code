@@ -1,6 +1,9 @@
+
+
 import type { IBook } from "../../interfaces/IBook";
 import { User } from "./User";
 import { Gender } from "../../enums/Gender";
+import { Role } from "../../enums/Roles";
 
 export class Borrower extends User {
     private borrowedBooks: IBook[] = [];
@@ -8,11 +11,12 @@ export class Borrower extends User {
         id: string,
         name: string,
         age: number,
+        role: Role,
         gender?: Gender,
         address?: string,
         email?: string
     ){
-        super(id, name, age, gender, address, email);
+        super(id, name, age, role, gender, address, email);
     }
 
     getBorroweddBook(): IBook[]  {

@@ -1,3 +1,5 @@
+// interface cho sách
+
 import type { BookGenre } from "../enums/BookGenre";
 
 export interface IBook {

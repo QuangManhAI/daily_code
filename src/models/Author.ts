@@ -2,7 +2,11 @@ import type { BookGenre } from "../enums/BookGenre";
 import type { IAuthor } from "../interfaces/IAuthor";
 import type { IBook } from "../interfaces/IBook";
 import { Gender } from "../enums/Gender";
+import { Role } from "../enums/Roles";
 
+
+// Khai báo toàn bộ thuộc tính của tác giả sách
+// không coi tác giả là một người dùng
 export class Author implements IAuthor {
     constructor(
         public readonly id: string,
@@ -11,6 +15,7 @@ export class Author implements IAuthor {
         protected birthDate: Date,
         protected nationality: string,
         protected books: IBook[],
+        protected role: Role,
         protected gender?: Gender,
         protected address?: string,
         protected email?: string,
@@ -109,4 +114,14 @@ export class Author implements IAuthor {
     setAwards(_awards: string[]): void{
         this.awards = _awards;
     }
+
+
+    getRole(): Role {
+        return this.role;
+    }
+
+    setRole(_role: Role): void {
+        this.role = _role;
+    }
+
 }

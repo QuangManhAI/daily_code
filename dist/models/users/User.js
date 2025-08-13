@@ -5,13 +5,15 @@ class User {
     id;
     name;
     age;
+    role;
     gender;
     address;
     email;
-    constructor(id, name, age, gender, address, email) {
+    constructor(id, name, age, role, gender, address, email) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.role = role;
         this.gender = gender;
         this.address = address;
         this.email = email;
@@ -41,13 +43,19 @@ class User {
         return this.address || "";
     }
     setAddress(_address) {
-        this.address == _address;
+        this.address = _address;
     }
     getEmail() {
         return this.email;
     }
     setEmail(_email) {
-        this.email == _email;
+        this.email = _email;
+    }
+    getRole() {
+        return this.role;
+    }
+    setRole(_role) {
+        this.role = _role;
     }
 }
 exports.User = User;

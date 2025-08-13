@@ -2,6 +2,7 @@ import type { BookGenre } from "../enums/BookGenre";
 import type { IAuthor } from "../interfaces/IAuthor";
 import type { IBook } from "../interfaces/IBook";
 import { Gender } from "../enums/Gender";
+import { Role } from "../enums/Roles";
 export declare class Author implements IAuthor {
     readonly id: string;
     protected age: number;
@@ -9,6 +10,7 @@ export declare class Author implements IAuthor {
     protected birthDate: Date;
     protected nationality: string;
     protected books: IBook[];
+    protected role: Role;
     protected gender?: Gender | undefined;
     protected address?: string | undefined;
     protected email?: string | undefined;
@@ -16,7 +18,7 @@ export declare class Author implements IAuthor {
     protected deathDate?: Date | undefined;
     protected genres?: BookGenre[] | undefined;
     protected awards?: string[] | undefined;
-    constructor(id: string, age: number, name: string, birthDate: Date, nationality: string, books: IBook[], gender?: Gender | undefined, address?: string | undefined, email?: string | undefined, biography?: string | undefined, deathDate?: Date | undefined, genres?: BookGenre[] | undefined, awards?: string[] | undefined);
+    constructor(id: string, age: number, name: string, birthDate: Date, nationality: string, books: IBook[], role: Role, gender?: Gender | undefined, address?: string | undefined, email?: string | undefined, biography?: string | undefined, deathDate?: Date | undefined, genres?: BookGenre[] | undefined, awards?: string[] | undefined);
     getId(): string;
     getName(): string;
     setName(_name: string): void;
@@ -42,5 +44,7 @@ export declare class Author implements IAuthor {
     setBooks(_books: IBook[]): void;
     getAwards(): string[] | undefined;
     setAwards(_awards: string[]): void;
+    getRole(): Role;
+    setRole(_role: Role): void;
 }
 //# sourceMappingURL=Author.d.ts.map

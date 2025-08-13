@@ -1,3 +1,5 @@
+// định nghĩa kiểu dữ liệu là các tập hằng có tên
+// định nghĩa thể loại sách
 export enum BookGenre {
     Fiction = "Fiction",
     NonFiction = "NonFiction",

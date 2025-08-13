@@ -1,5 +1,7 @@
-import type { Gender } from "../enums/Gender";
+// interface cho user 
 
+import type { Gender } from "../enums/Gender";
+import { Role } from "../enums/Roles";
 export interface IUser {
     getId(): string;
     getName(): string;
@@ -16,4 +18,7 @@ export interface IUser {
 
     getEmail(): string | undefined;
     setEmail(_email: string) : void;
+
+    getRole(): Role;
+    setRole(_role: Role): void;
 }

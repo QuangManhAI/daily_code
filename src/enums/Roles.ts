@@ -1,4 +1,6 @@
+// vai trò 
 export enum Role {
     BORROWER = "Borrower",
-    LIBRARIAN = "Librarian"
+    LIBRARIAN = "Librarian",
+    AUTHOR = "Author"
 }

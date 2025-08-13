@@ -1,3 +1,6 @@
+// gọi và kết nối tất cả thành phần lại
+// chuẩn bị để chạy main.ts
+
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
 import { MongoConnection } from "./database/connection";

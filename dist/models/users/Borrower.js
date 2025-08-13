@@ -4,8 +4,8 @@ exports.Borrower = void 0;
 const User_1 = require("./User");
 class Borrower extends User_1.User {
     borrowedBooks = [];
-    constructor(id, name, age, gender, address, email) {
-        super(id, name, age, gender, address, email);
+    constructor(id, name, age, role, gender, address, email) {
+        super(id, name, age, role, gender, address, email);
     }
     getBorroweddBook() {
         return this.borrowedBooks;

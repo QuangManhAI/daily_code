@@ -1,3 +1,6 @@
+// servicce là nơi xử lí các logic
+// do em chưa thêm xử lí logic nên nó hơi ít =))
+
 import { Injectable } from "@nestjs/common";
 import { AuthorRepository } from "../repositories/author.repository";
 import { IAuthor } from "../interfaces/IAuthor";

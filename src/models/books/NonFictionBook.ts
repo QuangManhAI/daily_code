@@ -1,3 +1,5 @@
+// kế thừa từ book cho nonficionbook 
+
 import type { BookGenre } from "../../enums/BookGenre";
 import { Book } from "./Books";
 
