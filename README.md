@@ -1,55 +1,52 @@
-src/
-│
-├── enums/                         # Khai báo enum dùng chung
-│   └── BookGenre.ts
-│
-├── interfaces/                    # Khai báo interface (hợp đồng dữ liệu)
-│   ├── IBook.ts
-│   ├── IUser.ts
-│   ├── IBorrower.ts
-│   ├── ILibrarian.ts
-│   ├── IAuthor.ts
-│   └── ILibrary.ts
-│
-├── models/                        # Các class mô tả dữ liệu & hành vi OOP
-│   ├── books/
-│   │   ├── Book.ts                 # Lớp trừu tượng cho sách
-│   │   ├── FictionBook.ts          # Sách tiểu thuyết
-│   │   └── NonFictionBook.ts       # Sách phi tiểu thuyết
-│   │
-│   ├── users/
-│   │   ├── User.ts                 # Lớp cơ sở cho người dùng
-│   │   ├── Borrower.ts             # Người mượn sách
-│   │   └── Librarian.ts            # Thủ thư
-│   │
-│   ├── Author.ts                   # Tác giả
-│   └── BorrowTransaction.ts        # Giao dịch mượn/trả sách
-│
-├── services/                       # Lớp xử lý nghiệp vụ (Business logic)
-│   └── Library.ts
-│
-├── repositories/                   # Tầng truy cập dữ liệu (CRUD với DB)
-│   ├── book.repository.ts
-│   ├── author.repository.ts
-│   ├── user.repository.ts
-│   └── ...
-│
-├── schemas/                        # Định nghĩa Mongoose schema
-│   ├── book.schema.ts
-│   ├── author.schema.ts
-│   ├── user.schema.ts
-│   └── ...
-│
-├── exceptions/                     # Custom error
-│   ├── BookNotAvailableError.ts
-│   ├── InvalidBorrowerError.ts
-│   └── OverdueError.ts
-│
-├── utils/                          # Hàm tiện ích
-│   └── dateUtils.ts
-│
-├── database/                       # Kết nối cơ sở dữ liệu
-│   └── database.ts
-│
-├── main.ts                         # Entry point
-└── README.md
+TS/
+├── dist/
+├── node_modules/
+├── src/
+│   ├── database/
+│   │   └── connection.ts
+│   ├── enums/
+│   │   ├── BookGenre.ts
+│   │   ├── Gender.ts
+│   │   ├── Roles.ts
+│   │   └── Status.ts
+│   ├── interfaces/
+│   │   ├── IAuthor.ts
+│   │   ├── IBook.ts
+│   │   ├── IBorrower.ts
+│   │   ├── IBorrowTransaction.ts
+│   │   ├── ILibrarian.ts
+│   │   └── IUser.ts
+│   ├── models/
+│   │   ├── books/
+│   │   │   ├── Books.ts
+│   │   │   ├── FictionBook.ts
+│   │   │   └── NonFictionBook.ts
+│   │   ├── users/
+│   │   │   ├── Borrower.ts
+│   │   │   ├── Librarian.ts
+│   │   │   └── User.ts
+│   │   ├── Author.ts
+│   │   └── BorrowTransaction.ts
+│   ├── repositories/
+│   │   ├── author.repository.ts
+│   │   ├── book.repository.ts
+│   │   ├── borrow-transaction.repository.ts
+│   │   └── user.repository.ts
+│   ├── schemas/
+│   │   ├── author.schema.ts
+│   │   ├── book.schema.ts
+│   │   ├── borow-transaction.schema.ts
+│   │   └── user.schemas.ts
+│   ├── services/
+│   │   ├── author.service.ts
+│   │   ├── book.service.ts
+│   │   ├── borrow-transaction.service.ts
+│   │   └── user.service.ts
+│   ├── app.source.ts
+│   └── main.ts
+├── .gitignore
+├── gitignore
+├── package-lock.json
+├── package.json
+├── README.md
+└── tsconfig.json
