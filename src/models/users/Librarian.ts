@@ -2,6 +2,7 @@ import { User } from "./User";
 import { Gender } from "../../enums/Gender";
 import type { IBook } from "../../interfaces/IBook";
 import type { IBorrower } from "../../interfaces/IBorrower";
+import { Role } from "../../enums/Roles";
 
 export class Librarian extends User {
     constructor(

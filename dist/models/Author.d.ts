@@ -1,0 +1,46 @@
+import type { BookGenre } from "../enums/BookGenre";
+import type { IAuthor } from "../interfaces/IAuthor";
+import type { IBook } from "../interfaces/IBook";
+import { Gender } from "../enums/Gender";
+export declare class Author implements IAuthor {
+    readonly id: string;
+    protected age: number;
+    protected name: string;
+    protected birthDate: Date;
+    protected nationality: string;
+    protected books: IBook[];
+    protected gender?: Gender | undefined;
+    protected address?: string | undefined;
+    protected email?: string | undefined;
+    protected biography?: string | undefined;
+    protected deathDate?: Date | undefined;
+    protected genres?: BookGenre[] | undefined;
+    protected awards?: string[] | undefined;
+    constructor(id: string, age: number, name: string, birthDate: Date, nationality: string, books: IBook[], gender?: Gender | undefined, address?: string | undefined, email?: string | undefined, biography?: string | undefined, deathDate?: Date | undefined, genres?: BookGenre[] | undefined, awards?: string[] | undefined);
+    getId(): string;
+    getName(): string;
+    setName(_name: string): void;
+    getAge(): number;
+    setAge(_age: number): void;
+    getGender(): Gender | undefined;
+    setGender(_gender: Gender): void;
+    getAddress(): string;
+    setAddress(_address: string): void;
+    getEmail(): string | undefined;
+    setEmail(_email: string): void;
+    getBiography(): string | undefined;
+    setBiography(_biography: string): void;
+    getNationality(): string | undefined;
+    setNationality(_nationlity: string): void;
+    getBirthdate(): Date;
+    setBirthDate(_birthdate: Date): void;
+    getDeathdate(): Date | undefined;
+    setDeathDate(_deathdate: Date): void;
+    getGenres(): BookGenre[] | undefined;
+    serGenres(_bookgenre: BookGenre[]): void;
+    getBooks(): IBook[];
+    setBooks(_books: IBook[]): void;
+    getAwards(): string[] | undefined;
+    setAwards(_awards: string[]): void;
+}
+//# sourceMappingURL=Author.d.ts.map

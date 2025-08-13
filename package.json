@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "ts-node src/main.ts",
+    "start:dev": "ts-node-dev --respawn src/main.ts",
+    "start:prod": "node dist/main.js",
+    "clean": "find src -type f \\( -name \"*.js\" -o -name \"*.js.map\" -o -name \"*.d.ts\" -o -name \"*.d.ts.map\" \\) -delete && rm -rf dist",
+    "build": "npm run clean && tsc"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +19,7 @@
   },
   "dependencies": {
     "@nestjs/mongoose": "^11.0.3",
+    "@nestjs/platform-express": "^11.1.6",
     "mongoose": "^8.17.1"
   }
 }

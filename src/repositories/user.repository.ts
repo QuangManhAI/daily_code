@@ -8,7 +8,7 @@ import { IUser } from "../interfaces/IUser";
 @Injectable()
 export class UserRepsitory {
     constructor(
-        @InjectModel('IUser') private readonly userModel:  Model<UserDocument>
+        @InjectModel('User') private readonly userModel:  Model<UserDocument>
     ) {}
 
     async create(data: Partial<IUser>): Promise<UserDocument> {
