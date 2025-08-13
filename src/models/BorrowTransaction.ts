@@ -1,17 +1,18 @@
-import type { IBook } from "../interfaces/IBook";
-import type { IBorrower } from "../interfaces/IBorrower";
+import { IBook } from "../interfaces/IBook";
+import { IBorrower } from "../interfaces/IBorrower";
+import { IBorrowTransaction } from "../interfaces/IBorrowTransaction";
 
-export class BorrowTransaction {
+export class BorrowTransaction implements IBorrowTransaction {
     constructor(
         public readonly id: string,
         protected borrower: IBorrower,
         protected book: IBook,
         protected borrowDate: Date,
         protected dueDate: Date,
-        protected returnDate?: Date | null, 
+        protected returnDate?: Date | null
     ){}
 
-    getId(): string {
+        getId(): string {
         return this.id;
     }
 
@@ -81,5 +82,5 @@ export class BorrowTransaction {
     markReturned(_returnDate: Date = new Date()): void {
         this.returnDate = _returnDate;
     }
-
+    
 }
