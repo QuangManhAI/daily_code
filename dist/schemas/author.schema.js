@@ -1,4 +1,5 @@
 "use strict";
+// Schemas như là nới định nghĩa các trường trong document
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -12,6 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthorSchema = exports.Author = void 0;
 const mongoose_1 = require("@nestjs/mongoose");
 let Author = class Author {
+    // @Prop là định nghĩa một trường(field) schema
     name;
     biography;
     nationlity;
@@ -50,7 +52,8 @@ __decorate([
     __metadata("design:type", Array)
 ], Author.prototype, "awards", void 0);
 exports.Author = Author = __decorate([
-    (0, mongoose_1.Schema)({ timestamps: true })
+    (0, mongoose_1.Schema)({ timestamps: true }) // đánh dấu một schema (decorator)
 ], Author);
+// tạo schema 
 exports.AuthorSchema = mongoose_1.SchemaFactory.createForClass(Author);
 //# sourceMappingURL=author.schema.js.map

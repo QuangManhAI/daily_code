@@ -1,4 +1,5 @@
 "use strict";
+// Xây dựng lớp User hoàn chỉnh để làm lớp cơ sở cho các lớp khác
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 class User {
@@ -9,6 +10,7 @@ class User {
     gender;
     address;
     email;
+    // hàm khởi tạo với các thuộc tính
     constructor(id, name, age, role, gender, address, email) {
         this.id = id;
         this.name = name;
@@ -18,6 +20,7 @@ class User {
         this.address = address;
         this.email = email;
     }
+    // phương thức cơ bản
     getId() {
         return this.id;
     }

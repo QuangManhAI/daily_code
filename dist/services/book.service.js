@@ -18,7 +18,7 @@ let BookService = class BookService {
         this.bookRepo = bookRepo;
     }
     async create(book) {
-        this.bookRepo.create(book);
+        return this.bookRepo.create(book);
     }
     async getAll() {
         return this.bookRepo.findAll();

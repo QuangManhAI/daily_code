@@ -1,28 +1,16 @@
-// interface cho một giao dịch sách
+import type { ITimeStamps, ObjectIdString } from "./common";
+import type { TxStatus } from "../enums/Txstatus";
 
-import { IBook } from "./IBook";
-import { IBorrower } from "./IBorrower";
+export interface IBorrowTransaction extends ITimeStamps{
+    _id?: ObjectIdString;
+    borrower: ObjectIdString;
+    bookCopy: ObjectIdString;
+    library: ObjectIdString;
+    borrowDate: Date;
 
-export interface IBorrowTransaction {
-    getId(): string;
-    getBorrower(): IBorrower;
-    setBorrower(_borrower: IBorrower): void;
+    dueDate: Date;
+    returnDate: Date;
+    status: TxStatus;
 
-    getBook(): IBook;
-    setBook(_book: IBook): void;
-
-    getBorrowDate(): Date;
-    setBorrowDate(_borrowdate: Date): void;
-
-    getDueDate(): Date;
-    setDueDate(_duedate: Date): void;
-
-    getReturnDate(): Date | null | undefined;
-    setReturnDate(date: Date): void;
-
-    isReturned(): boolean;
-    isOverDue(currentDate?: Date): boolean;
-    getOverdueDays(currentDate?: Date): number;
-    calculateFine(finePerDay?: number, currentDate?: Date): number;
-    markReturned(_returnDate?: Date): void;
+    fineTotal: number;
 }

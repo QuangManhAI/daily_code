@@ -1,14 +1,13 @@
-// interface cho sách
-
+import type { ITimeStamps, ObjectIdString } from "./common";
 import type { BookGenre } from "../enums/BookGenre";
 
-export interface IBook {
-    getId(): string;
-    getTitle(): string;
-    getAuthor(): string;
-    getGenre(): BookGenre;
-    getAvailableCopies(): number;
+export interface IBook extends ITimeStamps {
+    _id?: ObjectIdString;
+    title: string;
+    author: ObjectIdString;
+    genres: BookGenre[];
+    isbn?: string;
+    publishedYear?: number;
 
-    setTitle(_title: string): void;
-    setAvailableCopies(count: number): void;
+    totalCopies?: number;
 }

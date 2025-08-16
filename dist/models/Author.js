@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Author = void 0;
+// Khai báo toàn bộ thuộc tính của tác giả sách
+// không coi tác giả là một người dùng
 class Author {
     id;
     age;

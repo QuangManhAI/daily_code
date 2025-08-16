@@ -1,22 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Librarian = void 0;
+// kế thừa từ user
+// thêm một vài phương thức
 const User_1 = require("./User");
 class Librarian extends User_1.User {
-    constructor(id, name, age, role, gender, address, email) {
+    userService;
+    transactionService;
+    constructor(id, name, age, role, gender, address, email, userService, transactionService) {
         super(id, name, age, role, gender, address, email);
+        this.userService = userService;
+        this.transactionService = transactionService;
     }
-    addBook(book) {
-        console.log(`Librarian ${this.getName()} added book: ${book.getTitle()}`);
+    // thêm một vài phương thức như đăng kí người mượn, trả sách ...
+    // gọi lại service để sử dụng thử với database
+    async registerBorrower(borrower) {
+        await this.userService?.create(borrower);
     }
-    remove(bookId) {
-        console.log(`Librarian ${this.getName()} remove book: ${bookId}`);
+    async removeBorrower(borrowerId) {
+        await this.userService?.delete(borrowerId);
     }
-    registerBorrower(borrower) {
-        console.log(`Librarian ${this.getName()} registered borrower: ${borrower.getName()}`);
+    async lendBook(transaction) {
+        await this.transactionService?.create(transaction);
     }
-    removeBorrower(borrowerId) {
-        console.log(`Librarian ${this.getName()} removed borrower ID: ${borrowerId}`);
+    async returnBook(transactionId) {
+        await this.transactionService?.delete(transactionId);
     }
 }
 exports.Librarian = Librarian;

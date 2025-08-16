@@ -1,4 +1,5 @@
 "use strict";
+// kế thừa từ book cho nonficionbook 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.NonFictionBook = void 0;
 const Books_1 = require("./Books");

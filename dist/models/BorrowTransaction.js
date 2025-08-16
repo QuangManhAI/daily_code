@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BorrowTransaction = void 0;
+// xử lí với giao dịch mượn
 class BorrowTransaction {
     id;
     borrower;
@@ -58,6 +59,8 @@ class BorrowTransaction {
         }
         return currentDate > this.dueDate;
     }
+    //tính toán với các đặc trưng tìm các thông tin cần thiết
+    // tính số ngày người mượn bị trễ  hay tính tiền phạt dựa trên số ngày trễ
     getOverdueDays(currentDate = new Date()) {
         if (!this.isOverDue(currentDate))
             return 0;

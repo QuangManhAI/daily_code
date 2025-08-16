@@ -1,4 +1,8 @@
 "use strict";
+// injectable là decorator đánh dấu service có thể được ịnject vào chõ khác
+// inject: cơ chế quan trọng của DI, không cần tạo ra đối tượng phụ thuộc mà nhận đối tượng từ bên ngoài
+// inject model để đánh dấu là được thao tác với mongodb
+// Model cho phép gọi CRUD, truy vấn...
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,18 +25,23 @@ let AuthorRepository = class AuthorRepository {
     constructor(authorModel) {
         this.authorModel = authorModel;
     }
+    // CRUD
+    // create
     async create(data) {
         return this.authorModel.create(data);
     }
+    // read
     async findAll() {
         return this.authorModel.find().exec();
     }
     async findById(id) {
         return this.authorModel.findById(id).exec();
     }
+    // update
     async update(id, data) {
         return this.authorModel.findByIdAndUpdate(id, data, { new: true }).exec();
     }
+    // delete
     async delete(id) {
         return this.authorModel.findByIdAndDelete(id).exec();
     }

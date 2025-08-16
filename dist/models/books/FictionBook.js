@@ -1,4 +1,5 @@
 "use strict";
+// kế thừa từ book cho fictio book 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FictionBook = void 0;
 const Books_1 = require("./Books");

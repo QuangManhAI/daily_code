@@ -1,4 +1,5 @@
 "use strict";
+// xây dựng cụ thể một lớp book 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Book = void 0;
 class Book {
@@ -9,6 +10,7 @@ class Book {
     genre;
     totalCopies;
     availableCopies;
+    // hàm khởi tạo cho các thuộc tính
     constructor(id, title, author, year, genre, totalCopies, availableCopies) {
         this.id = id;
         this.title = title;
@@ -18,6 +20,7 @@ class Book {
         this.totalCopies = totalCopies;
         this.availableCopies = availableCopies;
     }
+    // định nghĩa các phương thức liên quan
     getId() {
         return this.id;
     }
@@ -36,18 +39,21 @@ class Book {
     setTitle(_title) {
         this.title = _title;
     }
+    // thiết lập bản sách còn lại 
     setAvailableCopies(count) {
         if (count < 0 || count > this.totalCopies) {
             throw new Error("Invalid values!");
         }
         this.availableCopies = count;
     }
+    // cho mượn một sách thì giảm bản sách còn trong thư viện đi 1
     borrowCopy() {
         if (this.availableCopies <= 0) {
             throw new Error("No availableCopies!");
         }
         this.availableCopies--;
     }
+    // khi một quyển sách được gửi trả
     returnCopy() {
         if (this.availableCopies < this.totalCopies) {
             this.availableCopies++;

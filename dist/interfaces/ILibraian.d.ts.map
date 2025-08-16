@@ -1,1 +1,1 @@
-{"version":3,"file":"ILibraian.d.ts","sourceRoot":"","sources":["../../src/interfaces/ILibraian.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,KAAK,EAAE,MAAM,SAAS,CAAC;AAErC,MAAM,WAAW,UAAW,SAAQ,KAAK;IACrC,UAAU,EAAG,MAAM,CAAC;IACpB,WAAW,EAAE,MAAM,CAAC;CACvB"}
+{"version":3,"file":"ILibraian.d.ts","sourceRoot":"","sources":["../../src/interfaces/ILibraian.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,KAAK,EAAE,MAAM,SAAS,CAAC;AAErC,MAAM,WAAW,UAAW,SAAQ,KAAK;IACrC,UAAU,EAAG,MAAM,CAAC;IACpB,WAAW,EAAE,MAAM,CAAC;CACvB"}

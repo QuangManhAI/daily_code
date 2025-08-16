@@ -1,15 +1,13 @@
-// định nghĩa kiểu dữ liệu là các tập hằng có tên
-// định nghĩa thể loại sách
+// lần hai thiết kế lại loại sách
 export enum BookGenre {
-    Fiction = "Fiction",
-    NonFiction = "NonFiction",
-    Mystery = "Mystery",
-    Fantasy = "Fantasy",
-    ScienceFiction = "ScienceFiction",
-    Biography = "Biography",
-    History = "History",
-    Romance = "Romance",
-    Thriller = "Thriller",
-    SelfHelp = "SelfHelp",
-    Poetry = "Poetry"
+    FICTION = 'FICTION',
+    NONFICTION = 'NONFICTION',
+    MYSTERY = 'MYSTERY',
+    FANTASY = 'FANTASY',
+    SCIENCE = 'SCIENCE',
+    HISTORY = 'HISTORY',
+    BIOGRAPHY = 'BIOGRAPHY',
+    CHILDREN = 'CHILDREN',
+    TECHNOLOGY = 'TECHNOLOGY',
+    OTHER = 'OTHER'
 }
