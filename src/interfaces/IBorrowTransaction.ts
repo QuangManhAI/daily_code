@@ -1,7 +1,7 @@
-import type { ITimeStamps, ObjectIdString } from "./common";
+import type { ITimestamps, ObjectIdString } from "./common";
 import type { TxStatus } from "../enums/Txstatus";
 
-export interface IBorrowTransaction extends ITimeStamps{
+export interface IBorrowTransaction extends ITimestamps{
     _id?: ObjectIdString;
     borrower: ObjectIdString;
     bookCopy: ObjectIdString;
@@ -9,8 +9,8 @@ export interface IBorrowTransaction extends ITimeStamps{
     borrowDate: Date;
 
     dueDate: Date;
-    returnDate: Date;
+    returnDate?: Date | null;
     status: TxStatus;
 
-    fineTotal: number;
+    fineTotal?: number;
 }

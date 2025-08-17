@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument, HydrateOptions } from "mongoose";
-import { ILibrary } from "../interfaces";
+import { HydratedDocument} from "mongoose";
+import { ILibrary } from "../interfaces/ILibrary";
 
 @Schema({timestamps: true, collection: 'libraries'})
 export class Library implements ILibrary{
@@ -11,12 +11,13 @@ export class Library implements ILibrary{
     @Prop({required: true, trim: true})
     name!: string;
 
-    @Prop() address?: string;
-    @Prop() phone?: string;
+    @Prop({required: true}) address!: string;
+    @Prop({required: true}) phone!: string;
 
-    @Prop({lowercase: true, trim: true, unique: true, sparse: true})
-    email?: string;
+    @Prop({lowercase: true, trim: true, unique: true, required: true})
+    email!: string;
 }
 export type LibraryDocument = HydratedDocument<Library>;
 export const LibrarySchema = SchemaFactory.createForClass(Library);
 LibrarySchema.index({name: 1}, {unique: true});
+LibrarySchema.index({email: 1}, {unique: true});

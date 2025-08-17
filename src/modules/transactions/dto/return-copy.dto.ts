@@ -1,4 +1,4 @@
-import { IsDateString, IsMongoId, IsOptional } from "class-validator";
+import { IsDateString, IsMongoId, IsNumber, IsOptional, Min } from "class-validator";
 
 export class ReturnCopyDto {
     @IsMongoId()
@@ -9,5 +9,7 @@ export class ReturnCopyDto {
     returnDate?: string;
 
     @IsOptional()
+    @Min(0)
+    @IsNumber()
     finePerDay?: number;
 }

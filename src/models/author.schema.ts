@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
-import { BookGenre, IAuthor } from "../interfaces";
+import { IAuthor } from "../interfaces/IAuthor";
+import { BookGenre } from "../enums/BookGenre";
 
 @Schema({timestamps: true, collection: 'authors'})
 export class Author implements IAuthor{

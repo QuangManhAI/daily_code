@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument, Types } from "mongoose";
-import { CopyStatus, IBookCopy } from "../../interfaces";
-
+import { IBookCopy } from "../../interfaces/Ibook-copy";
+import { CopyStatus } from "../../enums/CopyStatus";
 
 @Schema({timestamps: true, collection: 'book_copies'})
 export class BookCopy implements IBookCopy{
@@ -9,7 +9,7 @@ export class BookCopy implements IBookCopy{
     createdAt?: Date;
     updatedAt?: Date;
     @Prop({type: Types.ObjectId, ref: 'Book', required: true, index: true})
-    book!: string
+    book!: string;
 
     @Prop({type: Types.ObjectId, ref: 'Library', required: true, index: true})
     library!: string;

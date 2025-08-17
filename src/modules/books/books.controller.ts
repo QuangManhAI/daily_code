@@ -3,7 +3,7 @@ import { BooksService } from "./books.service";
 import { CreateBookDto } from "./dto/create-book.dto";
 import { UpdateBookDto } from "./dto/update-book.dto";
 
-@Controller()
+@Controller('books')
 export class BooksController {
     constructor(private readonly svc: BooksService) {}
 
@@ -28,7 +28,7 @@ export class BooksController {
     }
 
     @Delete(':id')
-    remove(@Param(':id') id: string) {
+    remove(@Param('id') id: string) {
         return this.svc.remove(id);
     }
 }

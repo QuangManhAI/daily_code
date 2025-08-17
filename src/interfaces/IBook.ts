@@ -1,7 +1,7 @@
-import type { ITimeStamps, ObjectIdString } from "./common";
+import type { ITimestamps, ObjectIdString } from "./common";
 import type { BookGenre } from "../enums/BookGenre";
 
-export interface IBook extends ITimeStamps {
+export interface IBook extends ITimestamps {
     _id?: ObjectIdString;
     title: string;
     author: ObjectIdString;

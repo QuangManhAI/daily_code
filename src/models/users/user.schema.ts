@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument } from "mongoose";
-
-import { Gender, IUser, Role } from "../../interfaces";
+import { Gender} from "../../enums/Gender";
+import { Role } from "../../enums/Roles";
+import { IUser } from "../../interfaces/IUser";
 
 @Schema({timestamps: true, collection: 'users'}) 
 export class User implements IUser{
@@ -20,7 +21,7 @@ export class User implements IUser{
     @Prop({min: 0})
     age?: number;
 
-    @Prop({type: String, enum: Object.values(Gender), default: undefined})
+    @Prop({type: String, enum: Object.values(Gender)})
     gender?: Gender;
 
     @Prop({type: String, enum: Object.values(Role), required: true,
@@ -31,4 +32,4 @@ export class User implements IUser{
 export type UserDocument = HydratedDocument<User>;
 export const UserSchema = SchemaFactory.createForClass(User);
 
-UserSchema.index({role: 1, email: 1});
+UserSchema.index({role: 1});

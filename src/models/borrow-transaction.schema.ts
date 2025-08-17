@@ -1,7 +1,8 @@
 import { Prop, Schema, SchemaFactory,  } from "@nestjs/mongoose";
 import { HydratedDocument, Types } from "mongoose";
-import { IBorrowTransaction, TxStatus } from "../interfaces";
-
+import { TxStatus } from "../enums/Txstatus";
+import { IBorrowTransaction } from "../interfaces/IBorrowTransaction";
+import { BookCopy } from "./books/book-copies.schema";
 @Schema({timestamps: true, collection: 'borrow_transactions'})
 export class BorrowTransaction implements IBorrowTransaction {
 
@@ -26,7 +27,7 @@ export class BorrowTransaction implements IBorrowTransaction {
     dueDate!: Date;
 
     @Prop({default: null})
-    returnDate!: Date;
+    returnDate?: Date | null;
 
     @Prop({type: String, enum: Object.values(TxStatus), default: TxStatus.BORROWED,
         index: true
@@ -34,7 +35,7 @@ export class BorrowTransaction implements IBorrowTransaction {
     status!: TxStatus;
 
     @Prop({default: 0,  min: 0})
-    fineTotal!: number;
+    fineTotal?: number;
 }
 
 export type BorrowTransactionDocument = HydratedDocument<BorrowTransaction>;
@@ -42,3 +43,4 @@ export const BorrowTransactionSchema = SchemaFactory.createForClass(BorrowTransa
 
 BorrowTransactionSchema.index({borrower: 1, status: 1, dueDate: 1});
 BorrowTransactionSchema.index({library: 1, status: 1});
+BorrowTransactionSchema.index({BookCopy: 1, status: 1});

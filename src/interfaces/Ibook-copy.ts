@@ -1,7 +1,7 @@
-import type { ITimeStamps, ObjectIdString } from "./common";
+import type { ITimestamps, ObjectIdString } from "./common";
 import { CopyStatus } from "../enums/CopyStatus";
 
-export interface IBookCopy extends ITimeStamps{
+export interface IBookCopy extends ITimestamps{
     _id?: ObjectIdString;
     book: ObjectIdString;
     library: ObjectIdString;

@@ -3,7 +3,8 @@ import { InjectModel, InjectConnection } from '@nestjs/mongoose';
 import { Model, Connection } from 'mongoose';
 import { BorrowTransaction, BorrowTransactionDocument } from '../../models/borrow-transaction.schema';
 import { BookCopy, BookCopyDocument } from '../../models/books/book-copies.schema';
-import { TxStatus, CopyStatus } from '../../interfaces';
+import { TxStatus } from '../../enums/Txstatus';
+import { CopyStatus } from '../../enums/CopyStatus';
 import { BorrowCopyDto } from './dto/borrow-copy.dto';
 import { ReturnCopyDto } from './dto/return-copy.dto';
 
@@ -22,6 +23,7 @@ export class TransactionsService {
 
     async borrowerCopy(dto: BorrowCopyDto) {
         const session = await this.conn.startSession();
+        session.startTransaction();
         try {
             const lockedCopy = await this.copyModel.findOneAndUpdate({
                 _id: dto.bookCopy, library: dto.library, status: CopyStatus.AVAIABLE
@@ -101,8 +103,6 @@ export class TransactionsService {
             NotFoundException('Active transaction not found');
 
             tx.status = TxStatus.LOST;
-            await tx.save({session});
-
             await tx.save({session});
 
             await this.copyModel.updateOne({_id: tx.bookCopy}, {

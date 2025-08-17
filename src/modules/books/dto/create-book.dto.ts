@@ -1,6 +1,6 @@
-import { IsArray, IsEnum, IsISBN, IsInt, IsMongoId, IsNotEmpty, IsOptional, IsString, Min } from "class-validator";
-import { BookGenre } from "../../../interfaces";
-
+import { ArrayMinSize, IsArray, IsEnum, IsInt, IsISBN, IsMongoId, IsNotEmpty, IsOptional, IsString, Min } from "class-validator";
+import { BookGenre } from "../../../enums/BookGenre";
+import { Transform } from "class-transformer";
 export class CreateBookDto {
     @IsString()
     @IsNotEmpty()
@@ -9,7 +9,9 @@ export class CreateBookDto {
     @IsMongoId()
     author!: string;
 
+    @Transform(({value})=> Array.isArray(value) ? value : [value])
     @IsArray()
+    @ArrayMinSize(1)
     @IsEnum(BookGenre, {each: true})
     genres!: BookGenre[];
 
@@ -18,8 +20,8 @@ export class CreateBookDto {
     @Min(0)
     publishedYear?: number;
 
+
     @IsOptional()
-    @IsInt()
-    @Min(0)
-    totalCopies?: number;
+    @IsISBN()
+    isbn?: string;
 }

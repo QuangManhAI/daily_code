@@ -4,7 +4,7 @@ export type ObjectIdString = string;
 
 
 // ghi lại thông tin tạo và cập nhật. 
-export interface ITimeStamps {
+export interface ITimestamps {
     createdAt?: Date;
     updatedAt?: Date;
 }

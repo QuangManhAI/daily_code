@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument, Types } from "mongoose";
-import { BookGenre, IBook } from "../../interfaces";
-import { title } from "process";
+import { BookGenre } from "../../enums/BookGenre";
+import { IBook } from "../../interfaces/IBook";
 
 @Schema({timestamps: true, collection: 'books'})
 export class Book implements IBook{
@@ -32,7 +32,7 @@ export class Book implements IBook{
 }
 
 export type BookDocument = HydratedDocument<Book>;
-export const BookSchema = SchemaFactory.createForClass(Book)
+export const BookSchema = SchemaFactory.createForClass(Book);
 
-BookSchema.index({index: 'text'});
-BookSchema.index({autho: 1, title: 1});
+BookSchema.index({title : 'text'});
+BookSchema.index({author: 1, title: 1});

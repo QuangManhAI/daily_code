@@ -30,8 +30,9 @@ export class UsersService {
         return updated;
     }
 
-    async remove(id: string): Promise<void> {
+    async remove(id: string): Promise<{deleted: boolean}> {
         const result = await this.userModel.findByIdAndDelete(id).exec();
         if (!result) throw new NotFoundException('User not found');
+        return {deleted: true}
     }
 }
