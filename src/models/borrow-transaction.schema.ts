@@ -26,7 +26,7 @@ export class BorrowTransaction implements IBorrowTransaction {
     @Prop({required: true})
     dueDate!: Date;
 
-    @Prop({default: null})
+    @Prop({type: Date ,default: null})
     returnDate?: Date | null;
 
     @Prop({type: String, enum: Object.values(TxStatus), default: TxStatus.BORROWED,

@@ -25,7 +25,7 @@ export class User implements IUser{
     gender?: Gender;
 
     @Prop({type: String, enum: Object.values(Role), required: true,
-        index: true, default: Role.MEMBER})
+         default: Role.MEMBER})
     role!: Role;
 }
 

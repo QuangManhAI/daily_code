@@ -20,4 +20,3 @@ export class Library implements ILibrary{
 export type LibraryDocument = HydratedDocument<Library>;
 export const LibrarySchema = SchemaFactory.createForClass(Library);
 LibrarySchema.index({name: 1}, {unique: true});
-LibrarySchema.index({email: 1}, {unique: true});
