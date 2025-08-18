@@ -1,7 +1,7 @@
 import {Injectable, NotFoundException} from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { Author, AuthorSchemas, AuthorDocument } from "../../models/author.schema";
+import { Author, AuthorDocument } from "../../models/author.schema";
 import { CreateAuthorDto } from "./dto/create-author.dto";
 import { UpdateAuthorDto } from "./dto/update-author.dto";
 
@@ -13,7 +13,7 @@ export class AuthorsService {
     create(dto: CreateAuthorDto){
         return this.authorModel.create({
             ...dto,
-            birthDate: dto.birthdDate ? new Date(dto.birthdDate) : undefined,
+            birthDate: dto.birthDate ? new Date(dto.birthDate) : undefined,
             deathDate: dto.deathDate ? new Date(dto.deathDate) : undefined
         });
     }
@@ -30,7 +30,7 @@ export class AuthorsService {
 
     async update(id: string, dto: UpdateAuthorDto) {
         const payload: any = {...dto};
-        if (dto.birthdDate) payload.birthDate = new Date(dto.birthdDate);
+        if (dto.birthDate) payload.birthDate = new Date(dto.birthDate);
         if (dto.deathDate) payload.deathDate = new Date(dto.deathDate);
 
         const doc = await this.authorModel.findByIdAndUpdate(id, dto, {new: true}).exec();

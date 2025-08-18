@@ -1,10 +1,11 @@
 import { Transform } from "class-transformer";
-import { ArrayMinSize, IsArray, IsDateString, IsOptional, IsString } from "class-validator";
+import { ArrayMinSize, IsArray, IsDateString, IsNotEmpty, IsOptional, IsString } from "class-validator";
 import { IsEnum } from "class-validator";
 import { BookGenre } from "../../../enums/BookGenre";
 
 export class CreateAuthorDto {
     @IsString()
+    @IsNotEmpty()
     name!: string;
 
     @IsOptional()
@@ -17,11 +18,11 @@ export class CreateAuthorDto {
 
     @IsOptional()
     @IsDateString()
-    birthdDate?: Date;
+    birthDate?: string;
 
-    @IsString()
+    @IsOptional()
     @IsDateString()
-    deathDate?: Date;
+    deathDate?: string;
 
     @IsOptional()
     @Transform(({value}) => (Array.isArray(value) ? value : value ? [value] : []))
@@ -33,5 +34,6 @@ export class CreateAuthorDto {
     @Transform(({value }) => (Array.isArray(value) ? value : value ? [value] : []))
     @IsArray()
     @ArrayMinSize(0)
+    @IsString({each: true})
     awards?: string[];
 }
