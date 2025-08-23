@@ -1,3 +1,4 @@
+// ket noi dbmongo. dung .env de luu thong tin db
 import { MongooseModule } from "@nestjs/mongoose";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 

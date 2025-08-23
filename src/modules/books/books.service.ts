@@ -1,37 +1,52 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { InjectModel } from "@nestjs/mongoose";
-import { Book, BookDocument } from "../../models/books/book.schema";
-import { Model } from "mongoose";
 import { CreateBookDto } from "./dto/create-book.dto";
 import { UpdateBookDto } from "./dto/update-book.dto";
+import { Inject } from "@nestjs/common";
+import { BOOK_REPO, IBookRepository } from "./ports/book.repository";
+import { Book } from "../../models/books/book.schema";
 
 @Injectable()
 export class BooksService {
-    constructor(@InjectModel(Book.name) private readonly bookModel: Model<BookDocument>) {}
-    
-    create(dto: CreateBookDto) {
-        return this.bookModel.create(dto);
-    }
+  constructor(@Inject(BOOK_REPO) private readonly repo: IBookRepository) {}
 
-    findAll() {
-        return this.bookModel.find().populate('author').exec();
-    }
+  create(dto: CreateBookDto) {
+    const payload: Partial<Book> = {
+      title: dto.title,
+      author: dto.author,
+      genres: dto.genres,
+      ...(dto.publishedYear !== undefined ? { publishedYear: dto.publishedYear } : {}),
+      ...(dto.isbn ? { isbn: dto.isbn } : {}),
+    };
+    return this.repo.create(payload);
+  }
 
-    async findOne(id: string){
-        const doc = await this.bookModel.findById(id).populate('author').exec();
-        if (!doc) throw new NotFoundException('Book not found');
-        return doc;
-    }
+  findAll() {
+    return this.repo.findAll();
+  }
 
-    async update(id: string, dto: UpdateBookDto) {
-        const doc = await this.bookModel.findByIdAndUpdate(id, dto, {new: true}).exec();
-        if (!doc) throw new NotFoundException('Book not found');
-        return doc;
-    }
+  async findOne(id: string) {
+    const doc = await this.repo.findById(id);
+    if (!doc) throw new NotFoundException("Book not found");
+    return doc;
+  }
 
-    async remove(id: string) {
-        const doc = await this.bookModel.findByIdAndDelete(id).exec();
-        if (!doc) throw new NotFoundException('Book not Found');
-        return {deleted: true};
-    }
+  async update(id: string, dto: UpdateBookDto) {
+    const payload: Partial<Book> = {
+      ...(dto.title ? { title: dto.title } : {}),
+      ...(dto.author ? { author: dto.author } : {}),
+      ...(dto.genres ? { genres: dto.genres } : {}),
+      ...(dto.publishedYear !== undefined ? { publishedYear: dto.publishedYear } : {}),
+      ...(dto.isbn ? { isbn: dto.isbn } : {}),
+    };
+
+    const doc = await this.repo.updateById(id, payload);
+    if (!doc) throw new NotFoundException("Book not found");
+    return doc;
+  }
+
+  async remove(id: string) {
+    const ok = await this.repo.deleteById(id);
+    if (!ok) throw new NotFoundException("Book not found");
+    return { deleted: true };
+  }
 }

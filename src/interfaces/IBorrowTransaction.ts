@@ -1,5 +1,5 @@
 import type { ITimestamps, ObjectIdString } from "./common";
-import type { TxStatus } from "../enums/Txstatus";
+import type { TxStatus } from "../enums/TxStatus";
 
 export interface IBorrowTransaction extends ITimestamps{
     _id?: ObjectIdString;

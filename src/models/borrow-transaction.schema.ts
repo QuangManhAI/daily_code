@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory,  } from "@nestjs/mongoose";
 import { HydratedDocument, Types } from "mongoose";
-import { TxStatus } from "../enums/Txstatus";
+import { TxStatus } from "../enums/TxStatus";
 import { IBorrowTransaction } from "../interfaces/IBorrowTransaction";
 import { BookCopy } from "./books/book-copies.schema";
 @Schema({timestamps: true, collection: 'borrow_transactions'})
